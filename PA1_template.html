@@ -126,6 +126,7 @@ $(document).ready(function () {
 <p>Plot histogram with frequency of steps by day and add a red line showing the mean value</p>
 <pre><code>plot(actCastDate$date, actCastDate$steps, type=&quot;h&quot;, main=&quot;Histogram of Daily Steps&quot;, xlab=&quot;Date&quot;, ylab=&quot;Steps per Day&quot;, col=&quot;blue&quot;, lwd=8)
 abline(h=mean(actCastDate$steps, na.rm=TRUE), col=&quot;red&quot;, lwd=2)</code></pre>
+<p>png(“instructions_fig/histodaily.png”)</p>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level3">
 <h3>What is mean total number of steps taken per day?</h3>
@@ -144,6 +145,7 @@ abline(h=mean(actCastDate$steps, na.rm=TRUE), col=&quot;red&quot;, lwd=2)</code>
 <p>Plot line chart with average frequency of steps by interval and add line with mean</p>
 <pre><code>plot(actCastInt$interval, actCastInt$steps, type=&quot;l&quot;, main=&quot;Frequency of Steps Taken at Each Interval&quot;, xlab=&quot;Interval ID&quot;, ylab=&quot;Steps&quot;, col=&quot;orange&quot;, lwd=2)
 abline(h=mean(actCastInt$steps, na.rm=TRUE), col=&quot;red&quot;, lwd=2)</code></pre>
+<p>png(“instructions_fig/StepFreq.png”)</p>
 <p>The plot shows the peak at somewhere in the 800-900 interval range so let’s find out exactly which interval has the max value and what that maximum value is Output interval that has max value along with the max value</p>
 <pre><code>paste(&quot;Interval with max value =&quot;, actCastInt$interval[which(actCastInt$steps == max(actCastInt$steps))])</code></pre>
 <p>[1] “Interval with max value = 835”</p>
@@ -172,6 +174,7 @@ abline(h=mean(actCastInt$steps, na.rm=TRUE), col=&quot;red&quot;, lwd=2)</code><
 <p>Plot histogram with frequency of steps by day</p>
 <pre><code>plot(actCastDateNoNA$date, actCastDateNoNA$steps, type=&quot;h&quot;, main=&quot;Histogram of Daily Steps (Imputted NA Values)&quot;, xlab=&quot;Date&quot;, ylab=&quot;Steps&quot;, col=&quot;gray&quot;, lwd=8)
 abline(h=mean(actCastDateNoNA$steps), col=&quot;red&quot;, lwd=2)</code></pre>
+<p>png(“instructions_fig/HistoDailyNA.png”)</p>
 <p>Calculate mean and median of daily steps</p>
 <pre><code>paste(&quot;Mean daily steps =&quot;, mean(actCastDateNoNA$steps, na.rm=TRUE))</code></pre>
 <p>[1] “Mean daily steps = 10889.7992576554”</p>
@@ -206,6 +209,7 @@ library(gridExtra)</code></pre>
 <pre><code>plot1 &lt;- qplot(actCastWeekday$interval, actCastWeekday$steps, geom=&quot;line&quot;, data=actCastWeekday, main=&quot;Steps by Interval - Weekday&quot;, xlab=&quot;Interval ID&quot;, ylab=&quot;Number of Steps&quot;)
 plot2 &lt;- qplot(actCastWeekend$interval, actCastWeekend$steps, geom=&quot;line&quot;, data=actCastWeekend, main=&quot;Steps by Interval - Weekend&quot;, xlab=&quot;Interval ID&quot;, ylab=&quot;Number of Steps&quot;)
 grid.arrange(plot1, plot2, nrow=2)</code></pre>
+<p>png(“instructions_fig/Steps-by-Interval.png”)</p>
 </div>
 
 

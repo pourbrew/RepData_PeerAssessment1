@@ -32,6 +32,8 @@ Plot histogram with frequency of steps by day and add a red line showing the mea
 	plot(actCastDate$date, actCastDate$steps, type="h", main="Histogram of Daily Steps", xlab="Date", ylab="Steps per Day", col="blue", lwd=8)
 	abline(h=mean(actCastDate$steps, na.rm=TRUE), col="red", lwd=2)
 
+png("instructions_fig/histodaily.png")
+
 ### What is mean total number of steps taken per day?
 
 Calculate mean and median of daily steps
@@ -58,6 +60,8 @@ Plot line chart with average frequency of steps by interval and add line with me
 
 	plot(actCastInt$interval, actCastInt$steps, type="l", main="Frequency of Steps Taken at Each Interval", xlab="Interval ID", ylab="Steps", col="orange", lwd=2)
 	abline(h=mean(actCastInt$steps, na.rm=TRUE), col="red", lwd=2)
+
+png("instructions_fig/StepFreq.png")
 
 The plot shows the peak at somewhere in the 800-900 interval range so let's find out exactly which interval has the max value and what that maximum value is
 Output interval that has max value along with the max value
@@ -110,6 +114,8 @@ Plot histogram with frequency of steps by day
 	plot(actCastDateNoNA$date, actCastDateNoNA$steps, type="h", main="Histogram of Daily Steps (Imputted NA Values)", xlab="Date", ylab="Steps", col="gray", lwd=8)
 	abline(h=mean(actCastDateNoNA$steps), col="red", lwd=2)
 
+png("instructions_fig/HistoDailyNA.png")
+
 Calculate mean and median of daily steps
 
 	paste("Mean daily steps =", mean(actCastDateNoNA$steps, na.rm=TRUE))
@@ -159,3 +165,5 @@ Set plot area to two rows and one column, and then plot charts with mean line in
 	plot1 <- qplot(actCastWeekday$interval, actCastWeekday$steps, geom="line", data=actCastWeekday, main="Steps by Interval - Weekday", xlab="Interval ID", ylab="Number of Steps")
 	plot2 <- qplot(actCastWeekend$interval, actCastWeekend$steps, geom="line", data=actCastWeekend, main="Steps by Interval - Weekend", xlab="Interval ID", ylab="Number of Steps")
 	grid.arrange(plot1, plot2, nrow=2)
+
+png("instructions_fig/Steps-by-Interval.png")
